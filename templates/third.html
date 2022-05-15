@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+ <table>
+  <tr>
+    <th style="width:20%">item name</th>
+    <th style="width:20%">cost</th>
+    <th style="width: 20%">quantity</th>
+    <th style="width: 40%">total price</th>
+  </tr>
+   {% for i in   ans  %}
+  <tr>
+    <td style="width:20%">{{i.item_name}}</td>&nbsp;
+    <td style="width:20%">{{i.item_price}}</td>&nbsp;
+    <td style="width: 20%">{{i.item_quantity}}</td>
+    <td style="width: 40%"> {{i.item_total}}</td>
+  </tr>
+  {% endfor %}
+  <table>
+  <tr>
+    <th style="width:20%"></th>
+    <th style="width:20%"></th>
+    <th style="width: 20%">TOTAL</th>
+    <th style="width: 40%">{{sum}}</th>
+  </tr>
+</table>
+  <form action="/pdf" method="GET">
+            <div class="header">
+              <h3>pdf</h3>
+               <input type="submit" placeholder="view list">
+             </div>
+
+  <tr>
+    <td><a href="{% url 'update'%}">update</td>
+  </tr>
+
+
+
+        </form>
+
+</body>
+</html>

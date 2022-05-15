@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     {% comment %} <style>
+         div {
+  width: 400px;
+}
+ 
+h2 {
+  font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+  margin: 100;
+  padding: 0;
+}
+ 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+li {
+  font: 200 40px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+}
+ 
+li:last-child {
+  border: none;
+}
+ 
+li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 200px;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li a:hover {
+  font-size: 30px;
+  background: #f6f6f6;
+}
+
+.header {
+  padding: 20px;
+  width: 1000;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 10px;
+}
+     </style> {% endcomment %}
+    
+</head>
+<body>
+<table>
+  <tr>
+    <th >Sno</th>
+    <th >item name</th>
+    <th style="width:20%">cost</th>
+    <th style="width: 40%">detail</th>
+  </tr>
+   {% for i in list  %}
+  <tr>
+    <td style="width:10%">{{i.s_no}}</td>&nbsp;
+    <td style="width:30%">{{i.name}}</td>&nbsp;
+    <td style="width:20%">{{i.price}}</td>&nbsp;
+    <td style="width: 40%">{{i.details}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+         <h1>add the item in list from here</h1>
+
+    <form action="/genarate_list" method="POST">
+         {% csrf_token %}
+         serial no: <input type="text" name="s_no" placeholder="s_no"><br>
+         quantity : <input type="text" name="item1" placeholder="quantity"><br>
+         <input type="submit" value="Submit">
+    </form>
+  </br>
+  </br>
+  </br>
+         <form action="/clear_prev" method="POST">
+            {% csrf_token %}
+            <div class="header">
+              <h3>create new  list</h3>
+               <input type="submit" placeholder="view list">
+             </div>
+        </form>
+
+        <form action="/view_list" method="POST">
+            {% csrf_token %}
+            <div class="header">
+              <h3>view list</h3>
+               <input type="submit" placeholder="view list">
+             </div>
+        </form>
+
+         
+</body>
+</html>
